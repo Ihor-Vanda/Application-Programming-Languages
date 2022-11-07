@@ -40,8 +40,6 @@ def convert_to_prefix_expression(expression)
         end
     end
 
-    puts formated_expression
-
     for c in formated_expression.split(" ").delete_if {|x| x == " "}
         if is_digit?(c) # число добавляем в стек операндов
             operands.push(c + " ")
@@ -127,18 +125,10 @@ def calculate_prefix_expression(expression)
 end
 
 def main 
-    # expression = "15/(7-(1+1))*3-(2+(1+1))*15/(7-(200+1))*3-(2+(1+1))*(15/(7-(1+1))*3-(2+(1+1))+15/(7-(1+1))*3-(2+(1+1)))"
-    
-    # print "Enter expression:\n>"
-    # expression = gets.chomp
-    # expression = "1 + 2 * 3"
-    # expression = "cos(101)^2 + sin(5)^2 +(1 * (2 / (3 - (4 + 5))))"
+    print "Enter expression:\n>"
+    expression = gets.chomp
     conv_expression = convert_to_prefix_expression(expression)
     puts "Expression in prefix notation: #{conv_expression}"
-
-    # expression = "15/(7-(1+1))*3-(2+(1+1))*15/(7-(200+1))*3-(2+(1+1))*(15/(7-(1+1))*3-(2+(1+1))+15/(7-(1+1))*3-(2+(1+1)))"
-    # conv_expression = convert_to_prefix_expression(expression)
-    # puts "Expression in prefix notation: #{conv_expression}"
     puts "Result of expression: #{calculate_prefix_expression(conv_expression)}"
 end
 
